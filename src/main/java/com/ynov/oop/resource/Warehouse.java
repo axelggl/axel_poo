@@ -36,10 +36,10 @@ public class Warehouse implements EndTurnAction, CheckVictoryConditions, Resourc
     }
 
     // The Constructor allow another to instantiate this class with specific attributes
-    public Warehouse(Credits c, Plants p, Steel s){
-        this.credits = c;
-        this.plants = p;
-        this.steel = s;
+    public Warehouse(Credits credits, Plants plants, Steel steel){
+        this.credits = credits;
+        this.plants = plants;
+        this.steel = steel;
     }
     @Override
     public String toString() {
