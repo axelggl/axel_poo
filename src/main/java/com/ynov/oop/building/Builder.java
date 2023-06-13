@@ -4,14 +4,16 @@ import com.ynov.oop.globalParameter.HaveGlobalParameter;
 import com.ynov.oop.resource.Cost;
 import com.ynov.oop.resource.ResourceStockpile;
 
+// This class ables to create buildings.
+
 public class Builder {
     /*
-    1. vérifier qu'il y a moins de Plant dans le constructionCost que dans le warehouse
-    2. vérifier qu'il y a moins de Steel dans le constructionCost que dans le warehouse
-    3. vérifier qu'il y a moins de Credit dans le constructionCost que dans le warehouse
-    4. si toutes les conditions sont bonnes renvoyer true sinon renvoyer false
+    1. Verifies if we have enough Plants in our warehouse.
+    2. Verifies if we have enough Steel in our warehouse.
+    3. Verifies if we have enough Credit in our warehouse.
+    4. If all conditions are verified, returns true else returns false.
     */
-    public boolean canBuild(ResourceStockpile resourceStockpile, Cost constructionCost){
+    private boolean canBuild(ResourceStockpile resourceStockpile, Cost constructionCost){
         return resourceStockpile.getCredits().getValue() >= constructionCost.credit
                 && resourceStockpile.getPlants().getValue() >= constructionCost.plant
                 && resourceStockpile.getSteel().getValue() >= constructionCost.steel
@@ -25,11 +27,11 @@ public class Builder {
     }
 
     /*
-    1. vérifier si on peut la construire
-    2. si construction possible utiliser le coût
-    3. créer la City
-    4. activer l'effect de la City
-    5. renvoyer la City
+    1. Verifies if we can build.
+    2. If we can construct then we use cost.
+    3. Create City.
+    4. Activate City's effect.
+    5. Returns City.
     */
 
     public City createCity(ResourceStockpile resourceStockpile){
@@ -42,6 +44,14 @@ public class Builder {
         return null;
     }
 
+    /*
+    1. Verifies if we can build.
+    2. If we can construct then we use cost.
+    3. Create Forest.
+    4. Activate Forest's effect.
+    5. Returns Forest.
+    */
+
     public Forest createForest(ResourceStockpile resourceStockpile, HaveGlobalParameter haveGlobalParameter){
         if(this.canBuild(resourceStockpile, Forest.constructionCost)) {
             this.useConstructionCost(resourceStockpile, Forest.constructionCost);
@@ -51,6 +61,14 @@ public class Builder {
         }
         return null;
     }
+
+    /*
+    1. Verifies if we can build.
+    2. If we can construct then we use cost.
+    3. Create Greenhouse.
+    4. Activate Greenhouse's effect.
+    5. Returns Greenhouse.
+    */
 
     public Greenhouse createGreenhouse(ResourceStockpile resourceStockpile){
         if(this.canBuild(resourceStockpile, Greenhouse.constructionCost)) {
@@ -62,6 +80,14 @@ public class Builder {
         return null;
     }
 
+    /*
+    1. Verifies if we can build.
+    2. If we can construct then we use cost.
+    3. Create Mine.
+    4. Activate Mine's effect.
+    5. Returns Mine.
+    */
+
     public Mine createMine(ResourceStockpile resourceStockpile){
         if(this.canBuild(resourceStockpile, Mine.constructionCost)) {
             this.useConstructionCost(resourceStockpile, Mine.constructionCost);
@@ -71,6 +97,14 @@ public class Builder {
         }
         return null;
     }
+
+    /*
+    1. Verifies if we can build.
+    2. If we can construct then we use cost.
+    3. Create Nuclear Plant.
+    4. Activate Nuclear Plant's effect.
+    5. Returns Nuclear Plant.
+    */
 
     public NuclearPlant createNuclearPlant(ResourceStockpile resourceStockpile, HaveGlobalParameter haveGlobalParameter){
         if(this.canBuild(resourceStockpile, NuclearPlant.constructionCost)) {
