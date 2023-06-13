@@ -1,12 +1,12 @@
 # Requirements
---- ---
+
 ## Install sdkman
 - Install at https://sdkman.io/install
 
 
 
 # How to use the project ?
---- ---
+
 ## Prepare your environment
 ```shell
 sdk env install
